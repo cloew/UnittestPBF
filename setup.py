@@ -5,6 +5,7 @@ setup(name='pbf.python.unittest',
       description="Programmer's Best Friend Utility Extension for Unittest",
       author='', # Add your name here
       author_email='', # Add your e-mail here
-      packages=['pbf.python.unittest', 'pbf.python.unittest.Commands', 'pbf.python.unittest.templates'],
+      packages=['pbf.python', 'pbf.python.unittest', 'pbf.python.unittest.Commands', 
+                'pbf.python.unittest.helpers', 'pbf.python.unittest.templates'],
       #package_data = {'pbf.python.unittest.templates':[]}, # Add template files
      )
