@@ -1,7 +1,7 @@
 from pbf.Commands import command_manager
-from pbf.python.unittest.Commands.insert_function_test import InsertFunctionTest
-from pbf.python.unittest.helpers.unittest_helper import TryToAddSuiteToParent
-from pbf.python.unittest.templates import TemplatesRoot
+from pbf_python_unittest.Commands.insert_function_test import InsertFunctionTest
+from pbf_python_unittest.helpers.unittest_helper import TryToAddSuiteToParent
+from pbf_python_unittest.templates import TemplatesRoot
 from pbf.templates import template_manager
 
 class NewTest:

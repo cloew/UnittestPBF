@@ -1,7 +1,8 @@
 from pbf.helpers.file_helper import IsDirectory
 from pbf.Commands import command_manager
-from pbf.python.unittest.templates import TemplatesRoot
 from pbf.templates import template_manager
+
+from pbf_python_unittest.templates import TemplatesRoot
 
 import os
 
