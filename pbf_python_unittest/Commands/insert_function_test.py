@@ -12,12 +12,16 @@ class InsertFunctionTest:
     category = "insert"
     command = "test"
     description = "Insert a Python Function Test Class in a pre-existing Python test file"
-    minimumNumberOfArguments = 2
     
-    def run(self, args):
+    def addArguments(self, parser):
+        """ Add arguments to the parser """
+        parser.add_argument('function', action='store', help='Function to create test class for')
+        parser.add_argument('testfile', action='store', help='Test File to add test to')
+    
+    def run(self, arguments):
         """ Run the command """
-        functionToTest = args[0]
-        testFilename = args[1]
+        functionToTest = arguments.function
+        testFilename = arguments.testfile
         print "Inserting Python Test for Function:", functionToTest, "in:", testFilename
         self.insertFunctionTestLogic(functionToTest, testFilename)
         

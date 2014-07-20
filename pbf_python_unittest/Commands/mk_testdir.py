@@ -13,12 +13,16 @@ class MakePyTestDir:
     category = "mk"
     command = "testdir"
     description = "Makes a Python Test Directory"
-    minimumNumberOfArguments = 1
     
-    def run(self, args):
+    def addArguments(self, parser):
+        """ Add arguments to the parser """
+        parser.add_argument('directory', action='store', help='Directory to generate Python Test directory')
+    
+    def run(self, arguments):
         """ Create the Python Test Directory """
-        print "Creating Python Test Directory:", args[0]
-        self.makeTestDirectory(args[0])
+        destinationDirectory = arguments.directory
+        print "Creating Python Test Directory:", destinationDirectory
+        self.makeTestDirectory(destinationDirectory)
         
     def makeTestDirectory(self, dirname):
         """ Make the Test Directory """

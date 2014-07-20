@@ -11,11 +11,14 @@ class NewTestDriver:
     category = "new"
     command = "test-driver"
     description = "Create a Python unittest test driver"
-    minimumNumberOfArguments = 1
     
-    def run(self, args):
+    def addArguments(self, parser):
+        """ Add arguments to the parser """
+        parser.add_argument('destination', action='store', help='Destination for the new Test Driver')
+    
+    def run(self, arguments):
         """ Run the command """
-        driverFilename = args[0]
+        driverFilename = arguments.destination
         self.createNewTestDriver(driverFilename)
         
     def createNewTestDriver(self, driverFilename):

@@ -9,16 +9,20 @@ class NewTest:
     category = "new"
     command = "test"
     description = "Creates a new Python unittest file"
-    minimumNumberOfArguments = 1
+    
+    def addArguments(self, parser):
+        """ Add arguments to the parser """
+        parser.add_argument('destination', action='store', help='Destination for the new Python test file')
     
     def __init__(self):
         """ Initialize the New Test Command """
         self.insertFunctionTestCommand = InsertFunctionTest()
     
-    def run(self, args):
+    def run(self, arguments):
         """ Create the Python unittest file """
-        print "Creating Python Test:", args[0]
-        self.newTest(args[0])
+        destination = arguments.destination
+        print "Creating Python Test:", destination
+        self.newTest(destination)
         
     def newTest(self, path, addTest=True):
         """ Create the Python unittest file """
