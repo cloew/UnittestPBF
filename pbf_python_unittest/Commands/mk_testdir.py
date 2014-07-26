@@ -1,5 +1,5 @@
 from pbf.Commands import command_manager
-from pbf.Commands.Python.mk_pydir import MakePyDir
+from pbf_python.Commands.mk_pydir import MakePyDir
 
 from pbf_python_unittest.helpers.unittest_helper import TryToAddSuiteToParent
 from pbf_python_unittest.templates import TemplatesRoot
