@@ -2,7 +2,7 @@
 class %functionToTest%(unittest.TestCase):
     """ Test cases of %functionToTest% """
     
-    def  setUp(self):
+    def setUp(self):
         """ Build the *** for the test """
         
     def caseToTest(self):

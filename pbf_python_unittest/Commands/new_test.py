@@ -13,6 +13,7 @@ class NewTest:
     def addArguments(self, parser):
         """ Add arguments to the parser """
         parser.add_argument('destination', action='store', help='Destination for the new Python test file')
+        parser.add_argument('function', action='store', nargs='?', default=None, help='The function to test')
     
     def __init__(self):
         """ Initialize the New Test Command """
@@ -22,14 +23,16 @@ class NewTest:
         """ Create the Python unittest file """
         destination = arguments.destination
         print "Creating Python Test:", destination
-        self.newTest(destination)
+        self.newTest(destination, function=arguments.function)
         
-    def newTest(self, path, addTest=True):
+    def newTest(self, path, addTest=True, function=None):
         """ Create the Python unittest file """
         template_manager.CopyTemplate(path, "test.py", templates_directory=TemplatesRoot)
         
         if addTest:
-            self.insertFunctionTestCommand.insertFunctionTestLogic("functionToTest", path)
+            if function is None:
+                function = "functionToTest"
+            self.insertFunctionTestCommand.insertFunctionTestLogic(function, path)
             
         TryToAddSuiteToParent(path)
     
