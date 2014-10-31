@@ -13,6 +13,14 @@ def TryToAddSuiteToParent(filename):
         lines = AddImportToSuiteFile(lines, filename)
         lines = AddSuiteToSuiteFile(lines, suitename)
         Save(suiteFilename, lines)
+        
+def GetTestDirectory(directory):
+    """ Return if the given directory has a test directory """
+    return os.path.join(directory, "Test")
+        
+def HasTestDirectory(directory):
+    """ Return if the given directory has a test directory """
+    return os.path.exists(os.path.join(directory, "Test"))
 
 def GetParentTestSuite(filename):
     """ Return the Parent Test Suite for the given test filename """
@@ -26,6 +34,12 @@ def GetParentTestSuite(filename):
     else:
         return None
         
+def GetParentTestDirectory(filename):
+    """ Return if the given directory has a test directory """
+    parentDirectory = os.path.dirname(filename)
+    parentPath = os.path.join(parentDirectory, "../../")
+    return GetTestDirectory(parentPath)
+        
 def GetLocalSuite(filename):
     """ Return the local suite filename """
     parentDirectory = os.path.dirname(filename)
@@ -34,7 +48,7 @@ def GetLocalSuite(filename):
 def GetParentSuite(filename):
     """ Return the parent suite name """
     parentDirectory = os.path.dirname(filename)
-    parentPath = os.path.join(parentDirectory, "../../Test/suite.py")
+    parentPath = os.path.join(GetParentTestDirectory(filename), "suite.py")
     
     if not os.path.exists(parentPath):
         parentPath = os.path.join(parentDirectory, "../../test.py")

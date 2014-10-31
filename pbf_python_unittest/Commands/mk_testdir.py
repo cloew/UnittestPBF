@@ -1,7 +1,7 @@
 from pbf.Commands import command_manager
 from pbf_python.Commands.mk_pydir import MakePyDir
 
-from pbf_python_unittest.helpers.unittest_helper import TryToAddSuiteToParent
+from pbf_python_unittest.helpers.unittest_helper import GetTestDirectory, TryToAddSuiteToParent
 from pbf_python_unittest.templates import TemplatesRoot
 
 from pbf.templates import template_manager
@@ -26,7 +26,7 @@ class MakePyTestDir:
         
     def makeTestDirectory(self, dirname):
         """ Make the Test Directory """
-        testDirectory = os.path.join(dirname, "Test")
+        testDirectory = GetTestDirectory(dirname)
         mkPyDir = MakePyDir()
         mkPyDir.makePyDir(testDirectory)
         suiteFilename = os.path.join(testDirectory, "suite.py")
