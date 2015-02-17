@@ -1,4 +1,3 @@
-from pbf.Commands import command_manager
 from pbf.helpers.file_helper import GetDirname
 from pbf.helpers.filename_helper import GetBaseFilenameWithoutExtension
 
@@ -10,9 +9,6 @@ import os
 
 class NewTestFor:
     """ Command to create a unittest for a given file """
-    category = "new"
-    command = "test-for"
-    description = "Creates a new Python unittest file for the provided file"
                           
     def addArguments(self, parser):
         """ Add arguments to the parser """
@@ -38,5 +34,3 @@ class NewTestFor:
             
         testfile = os.path.join(GetTestDirectory(filedir), "{0}_test.py".format(GetBaseFilenameWithoutExtension(fileToTest)))
         self.newTestCommand.newTest(testfile, function=function)
-    
-command_manager.RegisterCommand(NewTestFor)

@@ -1,4 +1,3 @@
-from pbf.Commands import command_manager
 from pbf_python_unittest.Commands.insert_function_test import InsertFunctionTest
 from pbf_python_unittest.helpers.unittest_helper import TryToAddSuiteToParent
 from pbf_python_unittest.templates import TemplatesRoot
@@ -6,9 +5,6 @@ from pbf.templates import template_manager
 
 class NewTest:
     """ Create a New Python Test """
-    category = "new"
-    command = "test"
-    description = "Creates a new Python unittest file"
     
     def addArguments(self, parser):
         """ Add arguments to the parser """
@@ -35,10 +31,3 @@ class NewTest:
             self.insertFunctionTestCommand.insertFunctionTestLogic(function, path)
             
         TryToAddSuiteToParent(path)
-    
-    def help(self):
-        """ Print the Usage of the New Test Command """
-        print "Usage: pbf {category} {command} [path/to/test]".format(category=self.category, command=self.command)
-        print "\tWill create a new unittest style test file at the path given"
-    
-command_manager.RegisterCommand(NewTest)
