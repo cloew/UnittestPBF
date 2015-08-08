@@ -5,11 +5,5 @@ class %functionToTest%(unittest.TestCase):
     def setUp(self):
         """ Build the *** for the test """
         
-    def caseToTest(self):
+    def test_case(self):
         """ Test that ... """
-
-# Collect all test cases in this class
-testcases%FunctionToTest% = ["caseToTest"]
-suite%FunctionToTest% = unittest.TestSuite(map(%functionToTest%, testcases%FunctionToTest%))
-
-##########################################################

@@ -32,5 +32,5 @@ class NewTestFor:
         if not HasTestDirectory(filedir):
             self.makeTestDirCommand.makeTestDirectory(filedir)
             
-        testfile = os.path.join(GetTestDirectory(filedir), "{0}_test.py".format(GetBaseFilenameWithoutExtension(fileToTest)))
+        testfile = os.path.join(GetTestDirectory(filedir), "test_{0}.py".format(GetBaseFilenameWithoutExtension(fileToTest)))
         self.newTestCommand.newTest(testfile, function=function)

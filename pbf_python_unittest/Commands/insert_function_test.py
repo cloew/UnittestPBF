@@ -1,7 +1,5 @@
 from pbf.helpers.file_helper import GetLinesFromFile, Save
-from pbf.helpers.filename_helper import Capitalize
 
-from pbf_python_unittest.helpers.unittest_helper import AddSuiteToSuiteList, FindSuiteStartingLine
 from pbf_python_unittest.templates import TemplatesRoot
 
 from pbf.templates import template_manager
@@ -25,16 +23,12 @@ class InsertFunctionTest:
         """ Insert Function Test Logic """
         originalLines = GetLinesFromFile(testFilename)
         newLines = self.getTemplateLines(functionToTest)
-        suiteLineNumber = FindSuiteStartingLine(originalLines)
         
-        originalLines = AddSuiteToSuiteList(originalLines, suiteLineNumber, "suite"+Capitalize(functionToTest))
-        originalLines[suiteLineNumber-2:suiteLineNumber-2] = newLines
+        originalLines[1:1] = newLines
         Save(testFilename, originalLines)
         
     def getTemplateLines(self, functionToTest):
         """ Return the lines from the template file """
-        capitalName = Capitalize(functionToTest)
         return template_manager.GetTemplateFileLinesWithKeywordsReplaced("functiontest.py", 
-                                                                         {"%functionToTest%":functionToTest,
-                                                                          "%FunctionToTest%":capitalName}, 
+                                                                         {"%functionToTest%":functionToTest}, 
                                                                          templates_directory=TemplatesRoot)

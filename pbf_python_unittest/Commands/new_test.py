@@ -1,5 +1,4 @@
 from pbf_python_unittest.Commands.insert_function_test import InsertFunctionTest
-from pbf_python_unittest.helpers.unittest_helper import TryToAddSuiteToParent
 from pbf.templates.template_loader import TemplateLoader
 from pbf_python_unittest.templates import TemplatesRoot
 
@@ -30,5 +29,3 @@ class NewTest:
             if function is None:
                 function = "functionToTest"
             self.insertFunctionTestCommand.insertFunctionTestLogic(function, path)
-            
-        TryToAddSuiteToParent(path)
