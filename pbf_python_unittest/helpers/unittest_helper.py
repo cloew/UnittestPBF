@@ -1,4 +1,3 @@
-
 import os
         
 def GetTestDirectory(directory):
